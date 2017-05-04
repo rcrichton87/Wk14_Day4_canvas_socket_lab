@@ -10,18 +10,15 @@ class Canvas extends React.Component{
   componentDidMount(){
     this.canvas = document.getElementById("canvas")
     this.context = this.canvas.getContext('2d')
-    this.props.getCanvas(this.canvas)
-
-    console.log(this.context)
+    this.props.getCanvas(this.canvas, this.context)
 
   }
 
   onClick(event){
-
-    console.log(this.context.beginPath())
     this.context.beginPath();
     this.context.arc(event.clientX, event.clientY, 25, 0 , 2*Math.PI)
     this.context.fill()
+    this.props.socket.emit('draw', {x: event.clientX, y:event.clientY})
   }
 
   render(){
