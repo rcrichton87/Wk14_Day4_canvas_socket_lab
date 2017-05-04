@@ -7,47 +7,29 @@ class CanvasContainer extends React.Component {
     super(props)
     this.state = {}
   
-  
-this.socket = io('http://localhost:3000')
-this.socket.on('draw', this.draw.bind(this));
+    this.getCanvas = this.getCanvas.bind(this)
+    this.socket = io('http://localhost:3000')
+    this.socket.on('draw', this.draw.bind(this));
+  }
 
-}
+  getCanvas(canvas){
+    this.setState({canvas: canvas})
+  }
 
+  draw(){
+    
+  }
 
-draw(){
-  
-}
+  render() {
 
+  return (
 
-render() {
-
-return (
-
-  <div>
-
-    <h1>Lets draw something soon</h1>
-
-
-  </div>
-
-
+    <div>
+      <Canvas getCanvas={this.getCanvas}/>
+    </div>
   )
 
+  }
 }
-
-
-
-
-
-
-
-}
-
-
-
-
-
-
-
 
 export default CanvasContainer
