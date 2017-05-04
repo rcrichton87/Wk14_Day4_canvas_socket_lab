@@ -1,9 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import CanvasContainer from './containers/CanvasContainer'
+
 
 window.onload = function(){
   ReactDOM.render(
-    <h1> App Started </h1>,
+    <CanvasContainer/>,
     document.getElementById('app')
   );
 }
